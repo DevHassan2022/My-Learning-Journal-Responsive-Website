@@ -1,0 +1,357 @@
+/* Box Model Reset */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Source Sans Pro";
+}
+
+/* Shared properties */
+/* **************** */
+
+/* Grid containers */
+.container,
+main,
+.main-article,
+.article-listing {
+    display: grid;
+}
+
+/* Flex containers */
+.navbar,
+.main-article--intro,
+.main-article--summary,
+.footer {
+    display: flex;
+}
+
+/* Flex direction column */
+.main-article--intro,
+.main-article--summary,
+.footer {
+    flex-direction: column;
+}
+
+/* Align items center */
+.navbar,
+.footer {
+    align-items: center;
+}
+
+/* Text transform uppercase */
+.navbar--home a,
+.navbar--about_me a,
+.blog-date,
+.main-article--date {
+    text-transform: uppercase;
+}
+
+/* Line height normal */
+.main-article--text,
+.blog-date,
+.main-article--summary {
+    line-height: normal;    
+}
+
+/*Line height 108.2%  */
+.main-article--heading,
+ .blog-heading,
+ .footer p  {
+    line-height: 108.2%; 
+}
+
+/* Line height 125% */
+.blog-text,
+ .footer p:nth-of-type(2) {
+     line-height: 125%; 
+}
+
+/* Margin 0 */
+.main-article--summary h3,
+.main-article--summary p,
+.main-article--intro p, 
+.main-article--intro h1,
+.recent-posts,
+article:last-of-type p:last-of-type,
+.footer p  {
+    margin: 0;
+}
+
+/* ****** Layout ****** */
+/* ********************** */
+.container {
+    grid-template: auto auto 51px 105px / minmax(414px,auto);
+    grid-template-areas:
+        "header"
+        "main"
+        "."
+        "footer";
+}
+
+/* Navigation */
+.header {
+    grid-area: header;
+}
+
+.navbar {
+    padding: 0 1.25em;
+}
+
+.navbar--learning_journal {
+    margin-right: auto;
+}
+    
+.navbar--home {
+    margin-right: 2.5em;
+}
+
+/* Main Section */
+main {
+    grid-area: main;
+    grid-gap: 3.1875em 0;
+    grid-template: auto auto / 20px minmax(374px, 1fr) 20px;
+    grid-template-areas:
+        ". hero ."
+        ". articles .";
+}
+
+/* Main Article / Hero Article */
+.main-article {
+    color: #151515;
+    grid-area: hero;
+    grid-gap: 2.1875em;
+    grid-template: 51px  auto auto auto / auto;
+    grid-template-areas:
+        "."
+        "article-intro"
+        "article-image"
+        "article-summary";
+}
+
+.main-article--intro {
+    grid-area: article-intro;
+    gap: 0.9375em;
+}
+
+.main-article--image {
+    grid-area: article-image;
+    border-radius: 3px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-article--summary {
+    grid-area: article-summary;
+    height: 440px;
+    justify-content: space-between;
+}
+
+/* Article Listing */
+.article-listing {
+    grid-area: articles;
+    grid-gap: 2.5625em 0;
+    grid-template: repeat(4,auto) / auto;
+}
+
+.blog-img {
+    width:100%;
+    border-radius: 3px;
+    object-fit: cover;
+ }
+
+/* Footer */
+.footer {
+    grid-area: footer;
+    background: #202020;
+    justify-content: center;
+}
+
+/* ****** Typography ****** */
+/* ************************ */
+
+/* Navigation */
+.navbar a {
+    text-decoration: none;
+}
+
+.navbar--learning_journal a {
+    margin-left: 0.221em;
+    letter-spacing: -0.407px;
+    font-size: 0.847rem;
+    font-family: Roboto;
+    color: #0E0E0E;
+}
+
+.navbar--home a,
+.navbar--about_me a{
+    color: #090909;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Main article */
+.main-article--date {
+    font-size: 0.75rem;
+}
+
+.main-article--heading {
+    letter-spacing: -0.96px;
+}
+
+.main-article--summary h3 {
+    font-size: 1rem;
+}
+
+/* Article Listing */
+.recent-posts {
+    text-align: center;
+    margin-bottom: -0.7em;
+}
+
+.blog-date {
+     color: #000;
+     font-size: 0.886rem;
+ }
+ 
+ .blog-heading {
+     color: #141414;
+ }
+ 
+.blog-text {
+     color: #505050;
+ }
+ 
+/* Footer */
+.footer p {
+    color: #ECECEC;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: -0.36px;
+}
+
+.footer p:nth-of-type(2) {
+    color: #D7D7D7;
+    font-weight: 400;
+}
+
+/* ******Media Queries******** */
+/* ************************** */
+
+@media (min-width: 1280px) {
+    body {
+        background: #FAFAFA;
+    }
+    
+    .header {
+        background: white;
+    }
+    
+
+    .navbar,
+    main {
+        max-width: 1085px;
+        margin: auto;
+    }
+
+   .navbar {
+       background: #fff;
+       height: 83px;
+       padding: 0 3.3125em;
+   }
+   
+   .navbar img {
+       width: 34px;
+       height: 34px;
+   }
+   
+   .navbar--learning_journal a {
+        font-size: 1.252rem;
+        letter-spacing: -0.601px;
+   }
+   
+   .navbar--home a,
+   .navbar--about_me a {
+        font-size: 1rem;
+   }
+   
+   main {
+         grid-gap: 4.5625em 0;
+         grid-template: auto auto  / 53px minmax(374px, 1fr) 53px;
+         grid-template-areas:
+            ". hero ."
+            ". articles .";
+   }
+   
+   .main-article {
+       grid-area: hero;
+       grid-gap: 2.25em 0;
+   }
+   
+   .main-article--intro {
+        margin-top: 102px;
+        margin-left: 4.25em;
+        gap: 1.5em;
+   }
+   
+   .main-article--image {
+        max-width: 979px;
+        max-height: 488px;
+   }
+   
+    .main-article--date {
+            font-size: 1rem;
+        }
+    
+    .main-article--heading {
+            font-size: 2.25rem;
+            letter-spacing: -1.08px;
+    }
+    
+    .main-article--text {
+            max-width: 842px;
+    }
+   
+    .main-article--summary {
+            max-width: 844px;
+            max-height: 381px;
+            font-size: 1.143rem;
+            margin-left: 3.719em;
+    }
+    
+    .main-article--summary h3 {
+        font-size: 1.5rem;
+        }
+    
+    .article-listing {
+        grid-template:  26px auto/ repeat(3,auto);
+        grid-gap:  1.167em 1.625em;
+        }
+   
+        article {
+        grid-row: 2;
+        }
+        
+        .recent-posts {
+            grid-column: 1 /-1;
+            font-size: 1.5rem;
+        }
+        
+        .blog-date {
+            font-size: 0.875rem;
+        }
+        
+        .blog-text {
+            color: #505050;
+            max-width: 309px; 
+        }
+        
+        .blog-img {
+            object-fit: cover;
+        }
+
+    }
